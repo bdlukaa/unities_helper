@@ -42,8 +42,8 @@ A more detailed example can be found on the example folder
 16. Time: nanosecond, microsecond, millisecond, second, minute, hour, day, week, month, calendar year, decade and century
 17. Volume: usLiquidGallon, usLiquidQuart, usLiquidPint, usLegalCup, usFluidOunce, usTablespoon, usTeaspoon, cubicMetre, litre, millilitre, gallon, imperialQuart, imperialPint, imperialCup, fluidOunce, imperialTablespoon, imperialTeaspoon, cubicFoot, cubicInch,
 
-<!-- ## Features and bugs
+## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: http://example.com/issues/replaceme -->
+[tracker]: https://github.com/bdlukaa/unities_helper/issues
