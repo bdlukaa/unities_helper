@@ -1,6 +1,6 @@
 name: unities_helper
 description: A library to help you convert unities and a few other things
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/bdlukaa/unities_helper
 
 environment:

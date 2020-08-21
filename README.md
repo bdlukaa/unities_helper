@@ -1,8 +1,5 @@
 A library to help Dart developers to convert unities and a few other things.
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
-
 ## Usage
 
 A simple usage example:
