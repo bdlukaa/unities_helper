@@ -103,7 +103,7 @@ double convertTime(Time from, Time to, double value) {
 
 class TimeValues {
   final Time from;
-  final num number;
+  final double number;
 
   const TimeValues({
     @required this.from,
@@ -134,19 +134,19 @@ class TimeValues {
         duration = Duration(microseconds: toNanosecond.toInt());
         break;
       case Time.microsecond:
-        duration = Duration(microseconds: number);
+        duration = Duration(microseconds: number.toInt());
         break;
       case Time.millisecond:
-        duration = Duration(milliseconds: number);
+        duration = Duration(milliseconds: number.toInt());
         break;
       case Time.minute:
-        duration = Duration(minutes: number);
+        duration = Duration(minutes: number.toInt());
         break;
       case Time.hour:
-        duration = Duration(hours: number);
+        duration = Duration(hours: number.toInt());
         break;
       case Time.day:
-        duration = Duration(days: number);
+        duration = Duration(days: number.toInt());
         break;
       case Time.week:
         duration = Duration(days: toWeeks.toInt());
@@ -164,7 +164,7 @@ class TimeValues {
         duration = Duration(days: toCentury.toInt());
         break;
       case Time.second:
-        duration = Duration(seconds: number);
+        duration = Duration(seconds: number.toInt());
         break;
       case Time.millenium:
         duration = Duration(days: toCentury.toInt() * 10);
@@ -177,6 +177,6 @@ class TimeValues {
 extension TimeExt on num {
   TimeValues asTime(Time time) => TimeValues(
         from: time,
-        number: this,
+        number: toDouble(),
       );
 }

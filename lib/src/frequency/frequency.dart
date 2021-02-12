@@ -57,7 +57,7 @@ double convertFrequency(Frequency from, Frequency to, double value) {
 
 class FrequencyValues {
   final Frequency from;
-  final num number;
+  final double number;
 
   const FrequencyValues({
     @required this.from,
@@ -80,6 +80,6 @@ extension FrequencyExt on num {
   /// ```
   FrequencyValues asFrequency(Frequency frequency) => FrequencyValues(
         from: frequency,
-        number: this,
+        number: toDouble(),
       );
 }

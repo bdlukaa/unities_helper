@@ -1,4 +1,14 @@
-## 2.0.0
+Date format: DD/MM/YYYY
+
+## 2.1.0 - [12/02/2021]
+
+- **NEW**:
+  - Digital Storage extension methods
+  - HEX Color extension methods
+- **FIXED**:
+  - Extension methods doesn't throw an error anymore if used int
+
+## 2.0.0 - [12/02/2021]
 
 - **NEW**:
   - **HIGHLIGHT** Digital storage

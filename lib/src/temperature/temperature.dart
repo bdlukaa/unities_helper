@@ -40,7 +40,7 @@ double convertTemperature(Temperature from, Temperature to, double value) {
 
 class TemperatureValues {
   final Temperature from;
-  final num number;
+  final double number;
 
   const TemperatureValues({
     @required this.from,
@@ -58,6 +58,6 @@ class TemperatureValues {
 extension TempExt on num {
   TemperatureValues asTemperature(Temperature temp) => TemperatureValues(
         from: temp,
-        number: this,
+        number: toDouble(),
       );
 }

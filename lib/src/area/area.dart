@@ -78,7 +78,7 @@ double convertArea(Area from, Area to, double value) {
 
 class AreaValues {
   final Area from;
-  final num number;
+  final double number;
 
   const AreaValues({
     @required this.from,
@@ -101,6 +101,6 @@ class AreaValues {
 extension AreaExt on num {
   AreaValues asArea(Area area) => AreaValues(
         from: area,
-        number: this,
+        number: toDouble(),
       );
 }

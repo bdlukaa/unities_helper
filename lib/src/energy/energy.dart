@@ -89,7 +89,7 @@ double convertEnergy(Energy from, Energy to, double value) {
 
 class EnergyValues {
   final Energy from;
-  final num number;
+  final double number;
 
   const EnergyValues({
     @required this.from,
@@ -118,6 +118,6 @@ extension EnergyExt on num {
   /// ```
   EnergyValues asEnergy(Energy energy) => EnergyValues(
         from: energy,
-        number: this,
+        number: toDouble(),
       );
 }

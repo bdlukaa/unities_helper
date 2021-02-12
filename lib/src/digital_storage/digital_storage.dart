@@ -1,3 +1,5 @@
+import 'package:meta/meta.dart';
+
 import '../unities_helper_base.dart';
 
 enum DigitalStorage {
@@ -146,4 +148,24 @@ double convertDigitalStorage(
         return value;
     }
   }
+}
+
+class DigitalStorageValues {
+  final DigitalStorage from;
+  final double number;
+
+  const DigitalStorageValues({
+    @required this.from,
+    @required this.number,
+  })  : assert(from != null),
+        assert(number != null);
+
+  double to(DigitalStorage to) => convertDigitalStorage(from, to, number);
+}
+
+extension DigitalStorageExt on num {
+  DigitalStorageValues asVolume(DigitalStorage v) => DigitalStorageValues(
+        from: v,
+        number: toDouble(),
+      );
 }

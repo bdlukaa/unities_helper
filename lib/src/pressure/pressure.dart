@@ -57,7 +57,7 @@ double convertPressure(Pressure from, Pressure to, double value) {
 
 class PressureValues {
   final Pressure from;
-  final num number;
+  final double number;
 
   const PressureValues({
     @required this.from,
@@ -77,6 +77,6 @@ class PressureValues {
 extension PressureExt on num {
   PressureValues asPressure(Pressure p) => PressureValues(
         from: p,
-        number: this,
+        number: toDouble(),
       );
 }

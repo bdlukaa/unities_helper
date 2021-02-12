@@ -65,7 +65,7 @@ double convertSpeed(Speed from, Speed to, double value) {
 
 class SpeedValues {
   final Speed from;
-  final num number;
+  final double number;
 
   const SpeedValues({
     @required this.from,
@@ -85,6 +85,6 @@ class SpeedValues {
 extension SpeedExt on num {
   SpeedValues asSpeed(Speed s) => SpeedValues(
         from: s,
-        number: this,
+        number: toDouble(),
       );
 }

@@ -21,3 +21,7 @@ class HEXColor extends Color {
   @override
   String toString() => '#$hex';
 }
+
+extension HexExtension on String {
+  HEXColor get asHex => HEXColor(hex: this);
+}

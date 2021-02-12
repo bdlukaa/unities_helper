@@ -66,7 +66,7 @@ double convertFuelEconomy(
 
 class FuelEconomyValues {
   final FuelEconomy from;
-  final num number;
+  final double number;
 
   const FuelEconomyValues({
     @required this.from,
@@ -85,6 +85,6 @@ class FuelEconomyValues {
 extension FuelEconomyExt on num {
   FuelEconomyValues asArea(FuelEconomy fuel) => FuelEconomyValues(
         from: fuel,
-        number: this,
+        number: toDouble(),
       );
 }

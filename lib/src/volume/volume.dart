@@ -133,7 +133,7 @@ double convertVolume(
 
 class VolumeValues {
   final Volume from;
-  final num number;
+  final double number;
 
   const VolumeValues({
     @required this.from,
@@ -149,6 +149,6 @@ class VolumeValues {
 extension VolumeExt on num {
   VolumeValues asVolume(Volume v) => VolumeValues(
         from: v,
-        number: this,
+        number: toDouble(),
       );
 }

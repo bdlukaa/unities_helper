@@ -90,7 +90,7 @@ double convertMass(Mass from, Mass to, double value) {
 
 class MassValues {
   final Mass from;
-  final num number;
+  final double number;
 
   const MassValues({
     @required this.from,
@@ -115,6 +115,6 @@ class MassValues {
 extension MassExt on num {
   MassValues asMass(Mass mass) => MassValues(
         from: mass,
-        number: this,
+        number: toDouble(),
       );
 }

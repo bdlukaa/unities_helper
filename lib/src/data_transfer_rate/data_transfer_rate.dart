@@ -109,7 +109,7 @@ double convertDataTransferRate(
 
 class DataTransferRateValues {
   final DataTransferRate from;
-  final num number;
+  final double number;
 
   const DataTransferRateValues({
     @required this.from,
@@ -138,6 +138,6 @@ extension DataTransferRateExt on num {
   DataTransferRateValues asDataTransferRate(DataTransferRate data) =>
       DataTransferRateValues(
         from: data,
-        number: this,
+        number: toDouble(),
       );
 }

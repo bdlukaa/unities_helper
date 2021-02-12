@@ -70,7 +70,7 @@ double convertPlaneAngle(PlaneAngle from, PlaneAngle to, double value) {
 
 class PlaneAngleValues {
   final PlaneAngle from;
-  final num number;
+  final double number;
 
   const PlaneAngleValues({
     @required this.from,
@@ -91,6 +91,6 @@ class PlaneAngleValues {
 extension PlaneAngleExt on num {
   PlaneAngleValues asPlaneAngle(PlaneAngle angle) => PlaneAngleValues(
         from: angle,
-        number: this,
+        number: toDouble(),
       );
 }

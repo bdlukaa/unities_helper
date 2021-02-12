@@ -95,7 +95,7 @@ double convertLength(Length from, Length to, double value) {
 
 class LengthValues {
   final Length from;
-  final num number;
+  final double number;
 
   const LengthValues({
     @required this.from,
@@ -121,6 +121,6 @@ class LengthValues {
 extension LengthExt on num {
   LengthValues asLength(Length length) => LengthValues(
         from: length,
-        number: this,
+        number: toDouble(),
       );
 }
