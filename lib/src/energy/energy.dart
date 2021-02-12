@@ -1,38 +1,8 @@
-//
-// Copyright 2020 Bruno D'Luka
-// 
-// Redistribution and use in source and binary forms, with or without modification, 
-// are permitted provided that the following conditions are met:
-// 
-// 1. Redistributions of source code must retain the above copyright notice, 
-// this list of conditions and the following disclaimer.
-// 
-// 2. Redistributions in binary form must reproduce the above copyright notice, 
-// this list of conditions and the following disclaimer in the documentation and/or 
-// other materials provided with the distribution.
-// 
-// 3. Neither the name of the copyright holder nor the names of its contributors 
-// may be used to endorse or promote products derived from this software without 
-// specific prior written permission.
-// 
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
-// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
-// OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
-// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
-// HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
-// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
-// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-
-// energy
+import 'package:meta/meta.dart';
 
 import '../unities_helper_base.dart' show verify;
 
-/// Approximate result when converting.
-/// Some decimals may be lost in the proccess.
+/// Convert energy
 enum Energy {
   joule,
   kilojoule,
@@ -46,8 +16,24 @@ enum Energy {
   foot_pound,
 }
 
-/// Approximate result when converting.
-/// Some decimals may be lost in the proccess.
+/// Convert energy. Some decimals may be lost in the proccess.
+///
+/// `from`, `to` and `value` can NOT be null,
+/// otherwise an [AssertionError] is thrown
+///
+/// Basic usage:
+/// ```dart
+/// main() {
+///  final energy = convertEnergy(
+///    Energy.kilocalorie, // from
+///    Energy.gramCalorie, // to
+///    1, // value
+///  );
+///  print(energy); // 1000
+/// }
+///```
+///
+/// [Read the documentation](https://github.com/bdlukaa/unities_helper#energy) for more information
 double convertEnergy(Energy from, Energy to, double value) {
   verify(from, to, value);
   if (from == to) return value;
@@ -103,11 +89,11 @@ double convertEnergy(Energy from, Energy to, double value) {
 
 class EnergyValues {
   final Energy from;
-  num number;
+  final num number;
 
-  EnergyValues({
-    this.from,
-    this.number,
+  const EnergyValues({
+    @required this.from,
+    @required this.number,
   })  : assert(from != null),
         assert(number != null);
 
@@ -123,10 +109,13 @@ class EnergyValues {
   double get toBritishThermalUnit => to(Energy.britishThermalUnit);
   double get toUStherm => to(Energy.usTherm);
   double get toFootPound => to(Energy.foot_pound);
-
 }
 
 extension EnergyExt on num {
+  /// Convert [this] as an [EnergyValues]. Basic usage:
+  /// ```dart
+  /// final footPound = 10.asEnergy(Energy.joule).toFootPound;
+  /// ```
   EnergyValues asEnergy(Energy energy) => EnergyValues(
         from: energy,
         number: this,

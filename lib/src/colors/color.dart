@@ -1,32 +1,3 @@
-//
-// Copyright 2020 Bruno D'Luka
-// 
-// Redistribution and use in source and binary forms, with or without modification, 
-// are permitted provided that the following conditions are met:
-// 
-// 1. Redistributions of source code must retain the above copyright notice, 
-// this list of conditions and the following disclaimer.
-// 
-// 2. Redistributions in binary form must reproduce the above copyright notice, 
-// this list of conditions and the following disclaimer in the documentation and/or 
-// other materials provided with the distribution.
-// 
-// 3. Neither the name of the copyright holder nor the names of its contributors 
-// may be used to endorse or promote products derived from this software without 
-// specific prior written permission.
-// 
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
-// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
-// OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
-// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
-// HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
-// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
-// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-
 import 'hex.dart';
 import 'hsv.dart';
 import 'rgb.dart';
@@ -40,35 +11,39 @@ export 'rgb.dart';
 import 'dart:math' as math;
 
 abstract class Color {
+  const Color();
+
+  /// Convert [this] to a RGBA color space
   RGBAColor get toRGB;
 
+  /// Convert [this] to a HEX color space
   HEXColor get toHex => toRGB.toHex;
 
-  HSVColor get toHSV => toHSLA.toHSV;
+  /// Convert [this] to a HSV color space
+  HSVColor get toHSV => toHSL.toHSV;
 
-  HSLAColor get toHSLA {
-    final r = toRGB.red;
-    final g = toRGB.green;
-    final b = toRGB.blue;
+  /// Convert [this] to a HSL color space
+  HSLColor get toHSL {
+    /// Code copied from `HSLColor` in the flutter repository
+    final rgb = toRGB;
+    final r = rgb.red;
+    final g = rgb.green;
+    final b = rgb.blue;
 
     var cmin = math.min(math.min(r, g), b),
         cmax = math.max(math.max(r, g), b),
         delta = cmax - cmin;
-    // ignore: omit_local_variable_types
-    double h = 0, s = 0, l = 0;
+    var h = 0.0, s = 0.0, l = 0.0;
 
-    if (delta == 0)
-      // ignore: curly_braces_in_flow_control_structures
+    if (delta == 0) {
       h = 0;
-    else if (cmax == r)
-      // ignore: curly_braces_in_flow_control_structures
+    } else if (cmax == r) {
       h = ((g - b) / delta) % 6;
-    else if (cmax == g)
-      // ignore: curly_braces_in_flow_control_structures
+    } else if (cmax == g) {
       h = (b - r) / delta + 2;
-    else
-      // ignore: curly_braces_in_flow_control_structures
+    } else {
       h = (r - g) / delta + 4;
+    }
 
     h = (h * 60).roundToDouble();
 
@@ -82,7 +57,7 @@ abstract class Color {
     // Multiply l and s by 100
     s += (s * 100).toFixed(1);
     l += (l * 100).toFixed(1);
-    return HSLAColor(
+    return HSLColor(
       alpha: toRGB.alpha.toDouble(),
       hue: h,
       saturation: s,
@@ -134,7 +109,7 @@ RGBAColor rgbaColorFromHue(
   );
 }
 
-extension numExtension on num {
+extension _NumExtension on num {
   num toFixed(int digits) {
     return num.parse(toStringAsFixed(digits));
   }

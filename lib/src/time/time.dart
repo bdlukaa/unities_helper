@@ -1,33 +1,4 @@
-//
-// Copyright 2020 Bruno D'Luka
-// 
-// Redistribution and use in source and binary forms, with or without modification, 
-// are permitted provided that the following conditions are met:
-// 
-// 1. Redistributions of source code must retain the above copyright notice, 
-// this list of conditions and the following disclaimer.
-// 
-// 2. Redistributions in binary form must reproduce the above copyright notice, 
-// this list of conditions and the following disclaimer in the documentation and/or 
-// other materials provided with the distribution.
-// 
-// 3. Neither the name of the copyright holder nor the names of its contributors 
-// may be used to endorse or promote products derived from this software without 
-// specific prior written permission.
-// 
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
-// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
-// OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
-// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
-// HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
-// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
-// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-
-// time
+import 'package:meta/meta.dart';
 
 import '../unities_helper_base.dart' show verify;
 
@@ -44,9 +15,27 @@ enum Time {
   calendarYear,
   decade,
   century,
-  // TODO: millenium,
+  millenium,
 }
 
+/// Convert Time. It may lose some decimals in the proccess.
+///
+/// `from`, `to` and `value` can NOT be null,
+/// otherwise an [AssertionError] is thrown
+///
+/// Basic usage:
+/// ```dart
+/// main() {
+///   final time = convertTime(
+///     Time.minute, // from
+///     Time.second, // to
+///     1, // value
+///   );
+///   print(temperature); // 60
+/// }
+/// ```
+///
+/// [Read the documentation](https://github.com/bdlukaa/unities_helper#time) for more information
 double convertTime(Time from, Time to, double value) {
   verify(from, to, value);
   if (from == to) return value;
@@ -74,6 +63,8 @@ double convertTime(Time from, Time to, double value) {
         return value / 3.154e+8;
       case Time.century:
         return value / 3.154e+9;
+      case Time.millenium:
+        return value / 3.154e+10;
       default:
         return value;
     }
@@ -102,6 +93,8 @@ double convertTime(Time from, Time to, double value) {
         return convertTime(second, to, value * 3.154e+8);
       case Time.century:
         return convertTime(second, to, value * 3.154e+9);
+      case Time.millenium:
+        return convertTime(second, to, value * 3.154e+10);
       default:
         return value;
     }
@@ -109,12 +102,12 @@ double convertTime(Time from, Time to, double value) {
 }
 
 class TimeValues {
-  Time from;
-  num number;
+  final Time from;
+  final num number;
 
-  TimeValues({
-    this.from,
-    this.number,
+  const TimeValues({
+    @required this.from,
+    @required this.number,
   })  : assert(from != null),
         assert(number != null);
 
@@ -172,6 +165,9 @@ class TimeValues {
         break;
       case Time.second:
         duration = Duration(seconds: number);
+        break;
+      case Time.millenium:
+        duration = Duration(days: toCentury.toInt() * 10);
         break;
     }
     return duration;

@@ -1,5 +1,20 @@
 A library to help Dart developers to convert unities and a few other things.
 
+<p align="center" >
+  <a title="Pub" href="https://pub.dartlang.org/packages/unities_helper" >
+    <img src="https://img.shields.io/pub/v/unities_helper.svg?style=popout&include_prereleases" />
+  </a>
+  <a title="Github License">
+    <img src="https://img.shields.io/github/license/bdlukaa/color-picker" />
+  </a>
+  <a title="PRs are welcome">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
+  </a>
+  <a title="Discord" href="https://discord.gg/674gpDQUVq">
+    <img src="https://img.shields.io/discord/809528329337962516?label=discord&logo=discord" />
+  </a>
+<div>
+
 ## Usage
 
 A simple usage example:
@@ -20,7 +35,23 @@ main() {
 
 A more detailed example can be found on the example folder
 
-## Supported conversions:
+## Supported conversions
+
+- [Area](#area)
+- [Color spaces](#color-spaces)
+- [Data transfer rate](#data-transfer-rate)
+- [Digital storage](#digital-storage)
+- [Energy](#energy)
+- [Frequency](#frequency)
+- [Fuel Economy](#fuel-economy)
+- [Length](#length)
+- [Mass](#mass)
+- [Plane angle](#plane-angle)
+- [Pressure](#pressure)
+- [Speed](#speed)
+- [Temperature](#temperature)
+- [Time](#time)
+- [Volume](#volume)
 
 ### Area
 
@@ -41,19 +72,26 @@ main() {
 }
 ```
 
-### Color codes
+### Color spaces
 
 |     |     |      |     |
 | --- | --- | ---- | --- |
 | HEX | HSV | HSLA | RGB |
 
+```dart
+main() {
+  final hex = RGBColor(red: 255, green: 255, blue: 255).toHex;
+  print(hex);
+}
+```
+
 ### Data Transfer Rate
 
-| bit  | kilo     | mega     | giga     | tera     |
-| ---- | -------- | -------- | -------- | -------- |
-|      | kibibit  | mebibit  | gibibit  | tebibit  |
-| bit  | kilobit  | megabit  | gigabit  | terabit  |
-| byte | kilobyte | megabyte | gigabyte | terabyte |
+| bit | kilo     | mega     | giga     | tera     |
+| --- | -------- | -------- | -------- | -------- |
+|     | kibibit  | mebibit  | gibibit  | tebibit  |
+| bit | kilobit  | megabit  | gigabit  | terabit  |
+|     | kilobyte | megabyte | gigabyte | terabyte |
 
 ```dart
 main() {
@@ -63,6 +101,26 @@ main() {
     1, // value
   );
   print(rate); // 1000
+}
+```
+
+### Digital storage
+
+| bit  | kilo     | mega     | giga     | tera     | peta     |
+| ---- | -------- | -------- | -------- | -------- | -------- |
+| bit  | kilobit  | megabit  | gigabit  | terabit  | petabit  |
+| byte | kibibit  | mebibit  | gibibit  | tebibit  | pebibit  |
+|      | kilobyte | megabyte | gigabyte | terabyte | petabyte |
+|      | kibibyte | mebibyte | gibibyte | tebibyte | pebibyte |
+
+```dart
+main() {
+  final storage = convertDigitalStorage(
+    DigitalStorage.gigabyte, // from
+    DigitalStorage.megabyte, // to
+    1, // value
+  );
+  print(storage); // 1000
 }
 ```
 
@@ -88,9 +146,9 @@ main() {
 
 ### Frequency
 
-|       |           |           |           |
-| ----- | --------- | --------- | --------- |
-| Hertz | Kilohertz | Megahertz | Gigahertz |
+|            |                 |                 |                 |
+| ---------- | --------------- | --------------- | --------------- |
+| Hertz (Hz) | Kilohertz (kHz) | Megahertz (mHz) | Gigahertz (gHz) |
 
 ```dart
 main() {
@@ -271,8 +329,46 @@ main() {
 }
 ```
 
+## Using extension methods
+
+Instead of using `convert + unit name`, you can use `num.as + unit name`. For example, if I want to convert mass, I can do it with two ways:
+
+### Using convert method
+
+```dart
+main() {
+  final mass = convertMass(Mass.kilogram, Mass.gram, 10);
+  print(mass);
+}
+```
+
+### Using extension methods
+
+```dart
+main() {
+  final mass = 10.asMass(Mass.kilogram).toGram;
+  print(mass);
+}
+```
+
+Both will print the same results. You can use extension methods with the following conversion types:
+
+- ✔️ Area
+- ❌ Color
+- ✔️ Data Transfer Rate
+- ✔️ Digital Storage
+- ✔️ Energy
+- ✔️ Frequency
+- ✔️ Fuel Economy
+- ✔️ Length
+- ✔️ Mass
+- ✔️ Plane Angle
+- ✔️ Pressure
+- ✔️ Speed
+- ✔️ Temperature
+- ✔️ Time
+- ✔️ Volume
+
 ## Features and bugs
 
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: https://github.com/bdlukaa/unities_helper/issues
+Please file feature requests and bugs at the [issue tracker](https://github.com/bdlukaa/unities_helper/issues).
