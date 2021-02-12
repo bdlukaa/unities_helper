@@ -1,5 +1,10 @@
 A library to help Dart developers to convert unities and a few other things.
 
+<p align="center">
+  <a title="Buy me a coffee" href="https://www.buymeacoffee.com/bdlukaa">
+    <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=bdlukaa&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00">
+  </a>
+</p>
 <p align="center" >
   <a title="Pub" href="https://pub.dartlang.org/packages/unities_helper" >
     <img src="https://img.shields.io/pub/v/unities_helper.svg?style=popout&include_prereleases" />
@@ -13,7 +18,9 @@ A library to help Dart developers to convert unities and a few other things.
   <a title="Discord" href="https://discord.gg/674gpDQUVq">
     <img src="https://img.shields.io/discord/809528329337962516?label=discord&logo=discord" />
   </a>
-<div>
+<p>
+
+English | [Português](README-PT.md)
 
 ## Usage
 
@@ -33,7 +40,7 @@ main() {
 }
 ```
 
-A more detailed example can be found on the example folder
+A more detailed example can be found on the [example folder](example/)
 
 ## Supported conversions
 
@@ -126,12 +133,11 @@ main() {
 
 ### Energy
 
-|                     |            |               |
-| ------------------- | ---------- | ------------- |
-| Joule               | Kilojoule  | Gram calorie  |
-| Kilocalorie         | Watt-hour  | Kilowatt-hour |
-| electron-volt       | therm (US) | Foot-pound    |
-| British Termal Unit |            |               |
+|               |             |               |
+| ------------- | ----------- | ------------- |
+| Joule         | Kilojoule   | Gram calorie  |
+| Kilocalorie   | Watt-hour   | Kilowatt-hour |
+| electron-volt | Termal Unit | Foot-pound    |
 
 ```dart
 main() {
@@ -200,11 +206,10 @@ main() {
 
 ### Mass
 
-|           |              |          |           |
-| --------- | ------------ | -------- | --------- |
-| Tonne     | Gram         | Kilogram | Milligram |
-| Microgram | Imperial Ton | US ton   | Stone     |
-| Pound     | Ounce        |          |           |
+|           |       |          |           |
+| --------- | ----- | -------- | --------- |
+| Tonne     | Gram  | Kilogram | Milligram |
+| Microgram | Stone | Pound    | Ounce     |
 
 ```dart
 main() {
@@ -219,10 +224,10 @@ main() {
 
 ### Plane Angle°
 
-|               |               |             |        |
-| ------------- | ------------- | ----------- | ------ |
-| Degree        | Gradian       | Milliradian | Radian |
-| Minute of arc | Second of arc |             |        |
+|        |               |               |
+| ------ | ------------- | ------------- |
+| Degree | Gradian       | Milliradian   |
+| Radian | Minute of arc | Second of arc |
 
 ```dart
 main() {

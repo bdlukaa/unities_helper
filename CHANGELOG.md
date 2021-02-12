@@ -1,5 +1,10 @@
 Date format: DD/MM/YYYY
 
+## 2.1.1 - [12/02/2021]
+
+- README portuguese translation
+- Improved documentation
+
 ## 2.1.0 - [12/02/2021]
 
 - **NEW**:

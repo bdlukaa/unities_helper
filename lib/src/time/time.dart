@@ -3,18 +3,43 @@ import 'package:meta/meta.dart';
 import '../unities_helper_base.dart' show verify;
 
 enum Time {
+  /// A nanosecond
   nanosecond,
+
+  /// A microsecond
   microsecond,
+
+  /// A millisecond.
   millisecond,
+
+  /// Second
   second,
+
+  /// A minute. 60 times a second
   minute,
+
+  /// An hour. 60 times a minute
   hour,
+
+  /// A day. 24 times an hour
   day,
+
+  /// A week. 7 times a day
   week,
+
+  /// A month. 30 times a day
   month,
+
+  /// An year. 12 times a month
   calendarYear,
+
+  /// A decade. 10 times an year
   decade,
+
+  /// A century. 10 times a decade
   century,
+
+  /// A millenium. 10 times a century
   millenium,
 }
 

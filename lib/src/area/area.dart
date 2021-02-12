@@ -3,11 +3,22 @@ import 'package:meta/meta.dart';
 import '../unities_helper_base.dart' show verify;
 
 enum Area {
+  /// km²
   squareKilometre,
+
+  /// m²
   squareMetre,
+
+  /// mi²
   squareMile,
+
+  /// yd²
   squareYard,
+
+  /// ft²
   squareFoot,
+
+  /// in²
   squareInch,
   hectare,
   acre
