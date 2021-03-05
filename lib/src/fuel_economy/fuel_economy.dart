@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../unities_helper_base.dart' show verify;
 
 /// Fuel economy
@@ -69,10 +67,9 @@ class FuelEconomyValues {
   final double number;
 
   const FuelEconomyValues({
-    @required this.from,
-    @required this.number,
-  })  : assert(from != null),
-        assert(number != null);
+    required this.from,
+    required this.number,
+  });
 
   double to(FuelEconomy to) => convertFuelEconomy(from, to, number);
 

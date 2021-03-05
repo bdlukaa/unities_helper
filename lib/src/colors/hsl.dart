@@ -23,11 +23,7 @@ class HSLColor extends Color {
     this.hue = 360,
     this.saturation = 1,
     this.lightness = 1,
-  })  : assert(alpha != null),
-        assert(hue != null),
-        assert(saturation != null),
-        assert(lightness != null),
-        assert(alpha >= 0 && alpha <= 1),
+  })  : assert(alpha >= 0 && alpha <= 1),
         assert(hue >= 0 && hue <= 360),
         assert(lightness >= 0 && lightness <= 1),
         assert(saturation >= 0 && saturation <= 1);

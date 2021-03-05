@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../unities_helper_base.dart' show verify;
 
 /// Data tranfer rate per second
@@ -112,10 +110,9 @@ class DataTransferRateValues {
   final double number;
 
   const DataTransferRateValues({
-    @required this.from,
-    @required this.number,
-  })  : assert(from != null),
-        assert(number != null);
+    required this.from,
+    required this.number,
+  });
 
   double to(DataTransferRate to) => convertDataTransferRate(from, to, number);
 

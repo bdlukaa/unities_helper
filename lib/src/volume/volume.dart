@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../unities_helper_base.dart';
 
 enum Volume {
@@ -136,14 +134,31 @@ class VolumeValues {
   final double number;
 
   const VolumeValues({
-    @required this.from,
-    @required this.number,
-  })  : assert(from != null),
-        assert(number != null);
+    required this.from,
+    required this.number,
+  });
 
   double to(Volume to) => convertVolume(from, to, number);
 
-  // TODO: premade to
+  double get toUsLiquidGallon => to(Volume.usLiquidGallon);
+  double get toUsLiquidQuart => to(Volume.usLiquidQuart);
+  double get toUsLiquidPint => to(Volume.usLiquidPint);
+  double get toUsLegalCup => to(Volume.usLegalCup);
+  double get toUsFluidOunce => to(Volume.usFluidOunce);
+  double get toUsTablespoon => to(Volume.usTablespoon);
+  double get toUsTeaspoon => to(Volume.usTeaspoon);
+  double get toCubicMetre => to(Volume.cubicMetre);
+  double get toLitre => to(Volume.litre);
+  double get toMillilitre => to(Volume.millilitre);
+  double get toGallon => to(Volume.gallon);
+  double get toImperialQuart => to(Volume.imperialQuart);
+  double get toImperialPint => to(Volume.imperialPint);
+  double get toImperialCup => to(Volume.imperialCup);
+  double get toFluidOunce => to(Volume.fluidOunce);
+  double get toImperialTablespoon => to(Volume.imperialTablespoon);
+  double get toTeaspoon => to(Volume.imperialTeaspoon);
+  double get toCubicFoot => to(Volume.cubicFoot);
+  double get toCubicInch => to(Volume.cubicInch);
 }
 
 extension VolumeExt on num {

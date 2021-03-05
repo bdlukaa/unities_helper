@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../unities_helper_base.dart' show verify;
 
 /// Approximate result when converting.
@@ -93,10 +91,9 @@ class MassValues {
   final double number;
 
   const MassValues({
-    @required this.from,
-    @required this.number,
-  })  : assert(from != null),
-        assert(number != null);
+    required this.from,
+    required this.number,
+  });
 
   double to(Mass to) => convertMass(from, to, number);
 

@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../unities_helper_base.dart' show verify;
 
 enum Time {
@@ -131,10 +129,9 @@ class TimeValues {
   final double number;
 
   const TimeValues({
-    @required this.from,
-    @required this.number,
-  })  : assert(from != null),
-        assert(number != null);
+    required this.from,
+    required this.number,
+  });
 
   double to(Time to) => convertTime(from, to, number);
 

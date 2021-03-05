@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../unities_helper_base.dart' show verify;
 
 enum Pressure { bar, pascal, torr, poundForcePerSquareInch, standartAtmosphere }
@@ -60,10 +58,9 @@ class PressureValues {
   final double number;
 
   const PressureValues({
-    @required this.from,
-    @required this.number,
-  })  : assert(from != null),
-        assert(number != null);
+    required this.from,
+    required this.number,
+  });
 
   double to(Pressure to) => convertPressure(from, to, number);
 

@@ -1,5 +1,11 @@
 Date format: DD/MM/YYYY
 
+## 3.0.0 - [05/03/2021]
+
+- Null safety
+- **NEW** `DigitalStorageValues`
+- **NEW** `VolumeValues`
+
 ## 2.1.1 - [12/02/2021]
 
 - README portuguese translation

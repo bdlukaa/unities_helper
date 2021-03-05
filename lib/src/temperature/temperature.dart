@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../unities_helper_base.dart' show verify;
 
 enum Temperature { celcius, fahrenheit, kelvin }
@@ -43,10 +41,9 @@ class TemperatureValues {
   final double number;
 
   const TemperatureValues({
-    @required this.from,
-    @required this.number,
-  })  : assert(from != null),
-        assert(number != null);
+    required this.from,
+    required this.number,
+  });
 
   double to(Temperature to) => convertTemperature(from, to, number);
 

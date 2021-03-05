@@ -1,7 +1,5 @@
 import 'dart:math';
 
-import 'package:meta/meta.dart';
-
 import '../unities_helper_base.dart' show verify;
 
 enum PlaneAngle {
@@ -73,10 +71,9 @@ class PlaneAngleValues {
   final double number;
 
   const PlaneAngleValues({
-    @required this.from,
-    @required this.number,
-  })  : assert(from != null),
-        assert(number != null);
+    required this.from,
+    required this.number,
+  });
 
   double to(PlaneAngle to) => convertPlaneAngle(from, to, number);
 

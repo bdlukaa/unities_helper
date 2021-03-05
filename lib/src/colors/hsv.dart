@@ -22,11 +22,7 @@ class HSVColor extends Color {
     this.hue = 360,
     this.saturation = 1,
     this.value = 1,
-  })  : assert(alpha != null),
-        assert(hue != null),
-        assert(saturation != null),
-        assert(value != null),
-        assert(alpha >= 0 && alpha <= 1),
+  })  : assert(alpha >= 0 && alpha <= 1),
         assert(hue >= 0 && hue <= 360),
         assert(value >= 0 && value <= 1),
         assert(saturation >= 0 && saturation <= 1);

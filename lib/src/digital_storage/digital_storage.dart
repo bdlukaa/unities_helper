@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../unities_helper_base.dart';
 
 enum DigitalStorage {
@@ -155,12 +153,34 @@ class DigitalStorageValues {
   final double number;
 
   const DigitalStorageValues({
-    @required this.from,
-    @required this.number,
-  })  : assert(from != null),
-        assert(number != null);
+    required this.from,
+    required this.number,
+  });
 
   double to(DigitalStorage to) => convertDigitalStorage(from, to, number);
+
+  double get toBit => to(DigitalStorage.bit);
+  double get toByte => to(DigitalStorage.byte);
+  double get toKilobit => to(DigitalStorage.kilobit);
+  double get toKibibit => to(DigitalStorage.kibibit);
+  double get toKilobyte => to(DigitalStorage.kilobyte);
+  double get toKibibyte => to(DigitalStorage.kibibyte);
+  double get toMegabit => to(DigitalStorage.megabit);
+  double get toMebibit => to(DigitalStorage.mebibit);
+  double get toMegabyte => to(DigitalStorage.megabyte);
+  double get toMebibyte => to(DigitalStorage.mebibyte);
+  double get toGigabit => to(DigitalStorage.gigabit);
+  double get toGibibit => to(DigitalStorage.gibibit);
+  double get toGigabyte => to(DigitalStorage.gigabyte);
+  double get toGibibyte => to(DigitalStorage.gibibyte);
+  double get toTerabit => to(DigitalStorage.terabit);
+  double get toTebibit => to(DigitalStorage.tebibit);
+  double get toTerabyte => to(DigitalStorage.terabyte);
+  double get toTebibyte => to(DigitalStorage.tebibyte);
+  double get toPetabit => to(DigitalStorage.petabit);
+  double get toPebibit => to(DigitalStorage.pebibit);
+  double get toPetabyte => to(DigitalStorage.petabyte);
+  double get toPebibyte => to(DigitalStorage.pebibyte);
 }
 
 extension DigitalStorageExt on num {

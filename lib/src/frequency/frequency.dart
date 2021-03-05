@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../unities_helper_base.dart' show verify;
 
 /// Approximate result when converting.
@@ -60,10 +58,9 @@ class FrequencyValues {
   final double number;
 
   const FrequencyValues({
-    @required this.from,
-    @required this.number,
-  })  : assert(from != null),
-        assert(number != null);
+    required this.from,
+    required this.number,
+  });
 
   double to(Frequency to) => convertFrequency(from, to, number);
 

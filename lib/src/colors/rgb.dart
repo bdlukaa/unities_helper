@@ -11,13 +11,9 @@ class RGBAColor extends Color {
     this.green = 255,
     this.blue = 255,
     this.alpha = 255,
-  })  : assert(red != null),
-        assert(red >= 0 && red <= 255),
-        assert(green != null),
+  })  : assert(red >= 0 && red <= 255),
         assert(green >= 0 && green <= 255),
-        assert(blue != null),
         assert(blue >= 0 && blue <= 255),
-        assert(alpha != null),
         assert(alpha >= 0 && alpha <= 255);
 
   String get _aHex => alpha.toRadixString(16).padLeft(2, '0');
